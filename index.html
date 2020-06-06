@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Agua Lojas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="navbar-center">
+      <span class="nav-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+      <img src="./img/logo.png" width="10%" alt="pokemon azul store logo">
+      <div class="cart-btn">
+        <span class="nav-icon">
+          <i class="fas fa-cart-plus"></i>
+        </span>
+        <div class="cart-items">0</div>
+      </div>
+    </div>
+  </nav>
+  <!-- final navbar -->
+  <!-- cabeçalho -->
+  <header class="pokehead">
+    <div class="banner">
+      <h1 class="banner-title">Loja Pokémon azul</h1>
+      <button class="banner-btn">Compre agora</button>
+    </div>
+  </header>
+  <!-- final do cabeçalho -->
+  <!-- produtos -->
+    <section class="product">
+      <div class="section-title">
+        <h2>Nossos pokémon</h2>
+      </div>
+      <div class="products-center">
+        <!-- produto simple -->
+        <article class="product">
+          <div class="img-container">
+            <img src="./img/squirtle.jpg" alt="squirtle" class="product-img">
+            <button class="bag-btn" data-id="1">
+              <i class="fas fa-shopping-cart"></i>
+              Adicionar ao carrinho
+            </button>
+          </div>
+          <h3>Squirtle</h3>
+          <h4>R$ 20</h4>
+        </article>
+        <!-- final produto simple -->
+        <!-- carrinho -->
+        <div class="cart-overlay">
+          <div class="cart">
+            <span class="close-cart">
+              <i class="fas fa-window-close"></i>
+            </span>
+            <h2>Seu carrinho</h2>
+            <div class="cart-content">
+              <!-- item do carrinho -->
+              <div class="cart-item">
+                <img src="./img/squirtle.jpg" alt="squirtle">
+                <div>
+                  <h4>Squirtle</h4>
+                  <h5>R$20</h5>
+                  <span class="remove-item">Tirar</span>
+                </div>
+                <div>
+                  <i class="fas fa-chevron-up"></i>
+                  <p class="item-amount">1</p>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+              <!-- final item do carrinho -->
+            </div>
+            <div class="cart-footer">
+              <h3>Total : R$ <span class="cart-total">0</span></h3>
+              <button class="clear-cart banner-btn">Limpar carrinho</button>
+            </div>
+          </div>
+        </div>
+        <!-- carrinho -->
+      </div>
+    </section>
+  <!-- final dos produtos -->
+
+  <!-- <script>
+    const cartItem = document.querySelector(".cart-item");
+    class Products{
+      getProducts(){
+        fetch(`https://pokeapi.co/api/v2/type/11/`)
+          .then(function (response) {
+            response.json()
+              .then(function (lista) {
+                let pokelist = lista.pokemon;
+                console.log(pokelist);
+                  for(let i = 0; i <= lista.pokemon.length; i++) {
+                    let pokeInfo = lista.pokemon[i].pokemon;
+                      fetch(pokeInfo.url)
+                        .then(function (response) {
+                          response.json()
+                            .then(function (info) {
+                              let pokes = info;
+                              cartItem.innerHTML = `
+                              <div class="cart-item">
+                                <img src="./img/squirtle.jpg" alt="squirtle">
+                                <div>
+                                  <h4>Squirtle</h4>
+                                  <h5>R$20</h5>
+                                  <span class="remove-item">Tirar</span>
+                                </div>
+                                <div>
+                                  <i class="fas fa-chevron-up"></i>
+                                  <p class="item-amount">1</p>
+                                  <i class="fas fa-chevron-down"></i>
+                                </div>
+                              `
+                              console.log(pokes);
+                            })
+                        })
+                  }
+              })
+          })
+      } -->
+
+      <!-- // function card(datos) {
+      //   cartItem.innerHTML = '';
+      //   for (let valor of datos){
+      //     console.log(valor);
+      //   }
+      // } -->
+    }
+
+  </script>
+
+  <script src="app.js"></script>
+  <script src="https://kit.fontawesome.com/780139cf13.js" crossorigin="anonymous"></script>
+</body>
+</html>
