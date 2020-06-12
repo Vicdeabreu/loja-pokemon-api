@@ -15,32 +15,32 @@ let cart = [];
 class Products{
   getProducts(){
     fetch(`https://pokeapi.co/api/v2/type/11/`)
-      .then(function (response) {
+      .then(response => {
         response.json()
-          .then(function (lista) {
+          .then(lista => {
             var pokemones = lista.pokemon;
-            console.log(pokemones);
-            var listapokemones = pokemones.map(pokemon => {
-              return listapokemones;
-               const {pokeurl} = pokemon.url;
-              // console.log(pokeurl)
-            })
-
-              // for(let i = 0; i <= lista.pokemon.length; i++) {
-              //   let pokeInfo = lista.pokemon[i].pokemon;
-              //     fetch(pokeInfo.url) 
-              //       .then(function (response) {
-              //         response.json()
-              //           .then(function (infopokes) {
-              //             let data = infopokes;
-              //             return data;
-              //           })
-              //       })
-              // } 
+            pokemones.forEach(pokemon => {
+              var link = pokemon.pokemon.url
+              console.log(link) 
+            });
           })
       })
   }
+
+  getPokemonDetails(link) {
+    new Promise((resolve,reject) => {
+      fetch(link)
+      .subscribe((response) => {
+        console.log(response);
+        resolve(response);
+      })
+      .error((err) => {
+        console.log(err);
+      })
+    });
+  }
 }
+
 
 // gerenciar produtos
 class UI {
@@ -75,6 +75,3 @@ const ui = new UI();
 const products = new Products();
   products.getProducts().then(data => ui.displayProducts(data))
 });
-
-
-
